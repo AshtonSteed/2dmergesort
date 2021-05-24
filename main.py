@@ -75,7 +75,7 @@ def one_d_merge_sort(n, arr): # literally just a merge sort stolen from the inte
 def merge(rows, cols, rowsplit, colsplit, a, b, c, d): # first merges rows together, then iterates through columns
     #row sorting
     toprows = [one_d_merge(a[i], b[i]) for i in range(0, rowsplit)]
-    bottomrows = [one_d_merge(c[i], d[i]) for i in range(0, cols - colsplit)]
+    bottomrows = [one_d_merge(c[i], d[i]) for i in range(0, rows - rowsplit)]
     rowarray = toprows + bottomrows
     #column sorting
     for i in range(0, cols):
@@ -122,6 +122,7 @@ if __name__ == '__main__':
     for i in range(n): # this loop maps the raw temparray to a correctly sized array
         array.append([])
         for j in range(m):
-            index = i * n + j
+            index = i * m + j
             array[i].append(int(temparray[index]))
+    print(array)
     print(array_merge_sort(n, m, array)) # prints a n * m 2d sorted list
